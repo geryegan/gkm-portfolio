@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 import Home from "./Home";
-import SubPage from "./SubPage";
+import Projects from "./Projects";
 
 const firstChild = (props) => {
   const childrenArray = React.Children.toArray(props.children);
@@ -14,10 +14,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="TopBsar">
+
+        <div className="TopBar">
           <Link to="/">Home</Link>
-          <Link to="/subpage">SubPage</Link>
+          <Link to="/projects">Projects</Link>
         </div>
+
         <Route
           exact
           path="/"
@@ -26,13 +28,16 @@ class App extends Component {
               {match && <Home {...rest} />}
             </TransitionGroup>
         )}/>
+
         <Route
-          path="/subpage"
+          path="/projects"
           children={({ match, ...rest }) => (
             <TransitionGroup component={firstChild}>
-              {match && <SubPage {...rest} />}
+              {match && <Projects {...rest} />}
             </TransitionGroup>
-        )}/>
+        )}
+        />
+
       </div>
     );
   }
