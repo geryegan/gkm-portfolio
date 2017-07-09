@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AnimatedWrapper from "./AnimatedWrapper";
+import Project from './Project';
 
 const projects = [
   {
@@ -24,8 +25,7 @@ class ProjectsComponent extends Component {
   renderProjects() {
     return projects.map(({ title, description }) => (
       <li>
-        <h4>{title}</h4>
-        <p>{description}</p>
+        <Project title={title} description={description}/>
       </li>
       )
     );
